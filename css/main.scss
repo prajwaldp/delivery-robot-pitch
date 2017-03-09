@@ -1,0 +1,452 @@
+---
+---
+
+
+//colors
+$color_shark_approx: #1d2731;
+$white: #fff;
+$color_teal_blue_approx: #0b3c5d;
+$color_gallery_approx: #eeeeee;
+$color_quill_gray_approx: #d4d4d4;
+$black_17_5: rgba(0, 0, 0, 0.175);
+$color_celeste_approx: #ccc;
+$color_boston_blue_approx: #328cc1;
+$color_gold_leaf: #D9B310;
+
+//fonts
+$font_0: Open Sans;
+$font_1: sans-serif;
+$font_2: FontAwesome;
+
+//@extend-elements
+//original selectors
+//hr.star-light, hr.star-primary
+%extend_1 {
+    margin: 25px auto 30px;
+    padding: 0;
+    max-width: 250px;
+    border: 0;
+    border-top: solid 5px;
+    text-align: center;
+}
+
+//original selectors
+//hr.star-light:after, hr.star-primary:after
+%extend_2 {
+    content: "\f005";
+    display: inline-block;
+    position: relative;
+    top: -.8em;
+    padding: 0 .25em;
+    font-family: $font_2;
+    font-size: 2em;
+}
+
+
+body {
+    overflow-x: hidden;
+    font-family: $font_0, $font_1;
+}
+
+a {
+    outline: 0;
+    color: $color_shark_approx;
+
+    &:hover {
+	outline: 0;
+	color: $color_shark_approx;
+    }
+    &:focus {
+	outline: 0;
+	color: $color_shark_approx;
+    }
+    &:active {
+	outline: 0;
+	color: $color_shark_approx;
+    }
+    &.active {
+	outline: 0;
+	color: $color_shark_approx;
+    }
+}
+
+hr {
+    &.star-light {
+	@extend %extend_1;
+	border-color: $white;
+	&:after {
+	    @extend %extend_2;
+	    color: $white;
+	    background-color: $color_shark_approx;
+	}
+    }
+    &.star-primary {
+	@extend %extend_1;
+	border-color: $color_teal_blue_approx;
+	&:after {
+	    @extend %extend_2;
+	    color: $color_teal_blue_approx;
+	    background-color: $white;
+	}
+    }
+}
+
+.img-centered {
+    margin: 0 auto;
+}
+
+header {
+    background: $white;
+    .container {
+	padding-top: 100px;
+	padding-bottom: 50px;
+    }
+    img {
+	display: block;
+	margin: 0 auto 20px;
+	width: 45%;
+    }
+    .intro-text {
+	.name {
+	    display: block;
+	    text-transform: uppercase;
+	    font-family: $font_0, $font_1;
+	    font-size: 1.5em;
+	}
+	.skills {
+	    font-size: 1.15em;
+	    font-weight: 300;
+	}
+    }
+}
+
+@media(min-width:768px) {
+    header {
+	.container {
+	    padding-top: 200px;
+	    padding-bottom: 100px;
+	}
+	.intro-text {
+	    .name {
+		font-size: 3.75em;
+	    }
+	    .skills {
+		font-size: 1.75em;
+	    }
+	}
+    }
+    .navbar-fixed-top .navbar-brand {
+	font-size: 2em;
+    }
+}
+
+.navbar {
+    .navbar-brand {
+	font-size: 1.3em;
+	text-transform: uppercase;
+    }
+    a:focus {
+	outline: 0;
+    }
+    .navbar-nav li a:focus {
+	outline: 0;
+    }
+
+    &.navbar-default {
+	border: 0;
+	background-color: darken($color_shark_approx, 2%);
+    }
+}
+
+section {
+    padding: 100px 0;
+    min-height: 100vh;
+    p {
+	font-size: 1.1em;
+	padding: 1rem 0;
+    }
+    h2 {
+	margin: 0;
+	text-transform: uppercase;
+	font-size: 3em;
+    }
+    ul {
+	list-style: none;
+	padding: 0;
+	li {
+	    font-size: 1.1em;
+	    padding-left: 1.3em;
+	    padding-top: 1rem;
+
+	    &:before {
+		content: "\f00c";
+		font-family: $font_2;
+		display: inline-block;
+		margin-left: -1.3em;
+		width: 1.3em;
+	    }
+	}
+    }
+    &#problem-statement {
+	color: $white;
+	background: $color_shark_approx;
+    }
+    &#about {
+	color: $color_shark_approx;
+	background: $white;
+    }
+    &#objectives {
+	color: $white;
+	background: $color_shark_approx;
+    }
+    &#assumptions {
+	color: $color_shark_approx;
+	background: $white;
+    }
+    &#design {
+	color: $white;
+	background: $color_shark_approx;
+    }
+    &#hardware-requirements {
+	color: $color_shark_approx;
+	background: $white;
+    }
+    &#time-line {
+	color: $white;
+	background: $color_shark_approx;
+    }
+}
+
+@media(max-width:767px) {
+    section {
+	padding: 75px 0;
+	&.first {
+	    padding-top: 75px;
+	}
+    }
+}
+.timeline {
+    list-style: none;
+    padding: 20px 0;
+    position: relative;
+    &:before {
+	top: 0;
+	bottom: 0;
+	position: absolute;
+	content: " ";
+	width: 3px;
+	background-color: $color_gallery_approx;
+	left: 50%;
+	margin-left: -1.5px;
+    }
+    > li {
+	margin-bottom: 20px;
+	position: relative;
+	&:before {
+	    content: " ";
+	    display: table;
+	}
+	&:after {
+	    content: " ";
+	    display: table;
+	    clear: both;
+	}
+	> {
+	    .timeline-panel {
+		width: 38%;
+		float: left;
+		border: 1px solid $color_quill_gray_approx;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 2px;
+		padding: 20px;
+		position: relative;
+		//Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+		box-shadow: 0 1px 6px $black_17_5;
+		&:before {
+		    position: absolute;
+		    top: 26px;
+		    right: -15px;
+		    display: inline-block;
+		    border-top: 15px solid transparent;
+		    border-left: 15px solid $color_celeste_approx;
+		    border-right: 0 solid $color_celeste_approx;
+		    border-bottom: 15px solid transparent;
+		    content: " ";
+		}
+		&:after {
+		    position: absolute;
+		    top: 27px;
+		    right: -14px;
+		    display: inline-block;
+		    border-top: 14px solid transparent;
+		    border-left: 14px solid $white;
+		    border-right: 0 solid $white;
+		    border-bottom: 14px solid transparent;
+		    content: " ";
+		}
+	    }
+	    .timeline-badge {
+		color: $white;
+		width: 200px;
+		height: 50px;
+		line-height: 50px;
+		font-size: 1.4em;
+		text-align: center;
+		position: absolute;
+		top: 16px;
+		left: 50%;
+		margin-left: -100px;
+		background-color: $color_gold_leaf;
+		z-index: 100;
+		//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+		border-radius: 4px;
+	    }
+	}
+	&.timeline-inverted > .timeline-panel {
+	    float: right;
+	    &:before {
+		border-left-width: 0;
+		border-right-width: 15px;
+		left: -15px;
+		right: auto;
+	    }
+	    &:after {
+		border-left-width: 0;
+		border-right-width: 14px;
+		left: -14px;
+		right: auto;
+	    }
+	}
+    }
+}
+.timeline-body {
+    > p {
+	margin-bottom: 0;
+	+ p {
+	    margin-top: 5px;
+	}
+    }
+    > ul {
+	margin-bottom: 0;
+    }
+}
+@media(max-width: 767px) {
+    ul.timeline {
+	&:before {
+	    left: 40px;
+	}
+	> li > {
+	    .timeline-panel {
+		width: calc(100% - 90px);
+		margin-top: 100px;
+		float: right;
+		&:before {
+		    border-left-width: 0;
+		    border-right-width: 15px;
+		    left: -15px;
+		    right: auto;
+		}
+		&:after {
+		    border-left-width: 0;
+		    border-right-width: 14px;
+		    left: -14px;
+		    right: auto;
+		}
+	    }
+	    .timeline-badge {
+		left: 15px;
+		margin-left: 0;
+		top: 16px;
+	    }
+	}
+    }
+}
+.btn-outline {
+    margin-top: 15px;
+    border: solid 2px $white;
+    font-size: 20px;
+    color: $white;
+    background: 0 0;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all .3s ease-in-out;
+    &:hover {
+	border: solid 2px $white;
+	color: $color_shark_approx;
+	background: $white;
+    }
+    &:focus {
+	border: solid 2px $white;
+	color: $color_shark_approx;
+	background: $white;
+    }
+    &:active {
+	border: solid 2px $white;
+	color: $color_shark_approx;
+	background: $white;
+    }
+    &.active {
+	border: solid 2px $white;
+	color: $color_shark_approx;
+	background: $white;
+    }
+}
+
+footer {
+    padding: 0.2rem 1rem;
+    color: $white;
+    background-color: $color_boston_blue_approx;
+}
+
+.btn-social {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 2px solid $white;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 100%;
+    text-align: center;
+    font-size: 20px;
+    line-height: 45px;
+}
+.btn {
+    &:focus {
+	outline: 0;
+    }
+    &:active {
+	outline: 0;
+    }
+    &.active {
+	outline: 0;
+    }
+}
+.scroll-top {
+    z-index: 1049;
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    width: 50px;
+    height: 50px;
+    .btn {
+	width: 50px;
+	height: 50px;
+	//Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+	border-radius: 100%;
+	font-size: 20px;
+	line-height: 28px;
+	&:focus {
+	    outline: 0;
+	}
+    }
+}
+.navbar-nav > .active > a {
+    background-color: $color_boston_blue_approx !important;
+}
+
+.post {
+    background-color: white;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    color: $color_shark_approx;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px darken($color_shark_approx, 5%);
+}
