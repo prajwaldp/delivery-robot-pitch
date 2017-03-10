@@ -450,3 +450,8 @@ footer {
     border-radius: 2px;
     box-shadow: 1px 1px 1px darken($color_shark_approx, 5%);
 }
+
+.text-cost {
+    color: darken($color_celeste_approx, 20%);
+    font-weight: bold;
+}
